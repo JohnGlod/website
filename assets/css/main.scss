@@ -34,7 +34,6 @@
   --content: 560px;
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -88,8 +87,8 @@
     text-decoration: none;
     font-weight: var(--font-weight-bold);
     color: inherit;
-    display: block;
     transition: animation ease-in 0.8s;
+
     &:hover {
       animation: pulse 5s infinite;
     }
@@ -105,22 +104,24 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(0,0,0);
+  background: rgb(0, 0, 0);
   border: 4px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #d0efb1;
-  border: 1px solid rgb(0,0,0);
-  border-radius: 8px; 
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.page-enter-active, .page-leave-active {
-  transition: opacity .3s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s;
 }
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
 
@@ -143,47 +144,62 @@
 }
 
 @keyframes hoverPop {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   33% {
     transform: scale(1.05);
   }
   66% {
-    transform: scale(.90);
+    transform: scale(0.9);
   }
 }
 
 @keyframes slick-hover {
   0.00% {
-    transform: translateY(20px) translateX(20px) }
+    transform: translateY(20px) translateX(20px);
+  }
   16.67% {
-    transform: translateY(-13px) translateX(-9px) }
+    transform: translateY(-13px) translateX(-9px);
+  }
   33.33% {
-    transform: translateY(4px) translateX(12px) }
+    transform: translateY(4px) translateX(12px);
+  }
   50.00% {
-    transform: translateY(20px) translateX(-20px) }
+    transform: translateY(20px) translateX(-20px);
+  }
   66.67% {
-    transform: translateY(-3px) translateX(8px) }
+    transform: translateY(-3px) translateX(8px);
+  }
   83.33% {
-    transform: translateY(-15px) translateX(-11px) }
+    transform: translateY(-15px) translateX(-11px);
+  }
   100.00% {
-    transform: translateY(20px) translateX(20px) }
+    transform: translateY(20px) translateX(20px);
+  }
 }
 
 @keyframes slick-hover-2 {
   0.00% {
-    transform: translateY(-20px) translateX(-20px) }
+    transform: translateY(-20px) translateX(-20px);
+  }
   16.67% {
-    transform: translateY(3px) translateX(-5px) }
+    transform: translateY(3px) translateX(-5px);
+  }
   33.33% {
-    transform: translateY(18px) translateX(-10px) }
+    transform: translateY(18px) translateX(-10px);
+  }
   50.00% {
-    transform: translateY(-20px) translateX(20px) }
+    transform: translateY(-20px) translateX(20px);
+  }
   66.67% {
-    transform: translateY(15px) translateX(-4px) }
+    transform: translateY(15px) translateX(-4px);
+  }
   83.33% {
-    transform: translateY(-1px) translateX(15px) }
+    transform: translateY(-1px) translateX(15px);
+  }
   100.00% {
-    transform: translateY(-20px) translateX(-20px) }
+    transform: translateY(-20px) translateX(-20px);
+  }
 }

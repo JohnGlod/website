@@ -2,32 +2,30 @@
 import aosMixin from '~/mixins/aos'
 export default {
   name: 'AboutPage',
-  data() {
-    return {
-      links: [
-        {
-          id: 1,
-          url: 'mailto:john1dolgopoloff@yandex.ru',
-          title: 'Сказать привет',
-          attr: {},
+  data: () => ({
+    links: [
+      {
+        id: 1,
+        url: 'mailto:john1dolgopoloff@yandex.ru',
+        title: 'Сказать привет',
+        attr: {},
+      },
+      {
+        id: 2,
+        url: 'https://github.com/JohnGlod',
+        title: 'Github',
+        attr: { target: '_blank', rel: 'noopener noreferrer' },
+      },
+      {
+        id: 3,
+        url: '/Dolgopolov_frontend_developer.pdf',
+        title: 'CV',
+        attr: {
+          download: 'Dolgopolov_frontend_developer.pdf',
         },
-        {
-          id: 2,
-          url: 'https://github.com/JohnGlod',
-          title: 'Github',
-          attr: { target: '_blank', rel: 'noopener noreferrer' },
-        },
-        {
-          id: 3,
-          url: '/Dolgopolov_frontend_developer.pdf',
-          title: 'CV',
-          attr: {
-            download: 'Dolgopolov_frontend_developer.pdf',
-          },
-        },
-      ],
-    }
-  },
+      },
+    ],
+  }),
   mixins: [aosMixin],
 }
 </script>

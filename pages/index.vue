@@ -1,35 +1,33 @@
 <script>
 export default {
   name: 'IndexPage',
-  data() {
-    return {
-      links: [
-        {
-          id: 1,
-          url: 'mailto:john1dolgopoloff@yandex.ru',
-          alt: 'Сказать привет',
-          attr: {},
-          src: '/email.png',
+  data: () => ({
+    links: [
+      {
+        id: 1,
+        url: 'mailto:john1dolgopoloff@yandex.ru',
+        alt: 'Сказать привет',
+        attr: {},
+        src: '/email.png',
+      },
+      {
+        id: 2,
+        url: 'https://github.com/JohnGlod',
+        alt: 'Мой Github',
+        src: '/github.png',
+        attr: { target: '_blank', rel: 'noopener noreferrer' },
+      },
+      {
+        id: 3,
+        url: '/Dolgopolov_frontend_developer.pdf',
+        alt: 'Мое резюме',
+        attr: {
+          download: 'Dolgopolov_frontend_developer.pdf',
         },
-        {
-          id: 2,
-          url: 'https://github.com/JohnGlod',
-          alt: 'Мой Github',
-          src: '/github.png',
-          attr: { target: '_blank', rel: 'noopener noreferrer' },
-        },
-        {
-          id: 3,
-          url: '/Dolgopolov_frontend_developer.pdf',
-          alt: 'Мое резюме',
-          attr: {
-            download: 'Dolgopolov_frontend_developer.pdf',
-          },
-          src: '/cv.png',
-        },
-      ],
-    }
-  },
+        src: '/cv.png',
+      },
+    ],
+  }),
 }
 </script>
 <template>
@@ -38,14 +36,11 @@ export default {
       <div class="hero__inner">
         <div class="hero__text">
           <span class="hero__subtitle">Россия, Тюмень</span>
-          <div>
-            <img
-              width="64px"
-              height="64px"
-              src="/hello.png"
-              alt="Привет, рад тебя видеть на этой странице!"
-            />
-          </div>
+          <img
+            class="hero__hello"
+            src="/hello.png"
+            alt="Привет, рад тебя видеть на этой странице!"
+          />
           <h1 class="hero__title">Я — Евгений Долгополов</h1>
 
           <p class="hero__descr">
@@ -64,7 +59,7 @@ export default {
               :download="item.attr.download"
               :target="item.attr.target"
             >
-              <img :src="item.src" :alt="item.alt" width="32px" height="32px" />
+              <img :src="item.src" :alt="item.alt" sizes="32px" />
             </a>
           </div>
         </div>
@@ -76,79 +71,20 @@ export default {
   </section>
 </template>
 
-<!-- 
-
-  animate 
-
-  <template>
-  <section class="hero">
-    <div class="container">
-      <div class="hero__inner">
-        <div class="hero__text">
-          <div
-            data-aos="flip-up"
-            data-aos-duration="800"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="300"
-          >
-            <span class="hero__subtitle">Россия, Тюмень</span>
-            <div>
-              <img src="/hello.png" alt="" srcset="" />
-            </div>
-            <h1 class="hero__title">Я — Евгений Долгополов</h1>
-          </div>
-
-          <p
-            class="hero__descr"
-            data-aos="flip-up"
-            data-aos-duration="1000"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="500"
-          >
-            Познаю необъятные просторы Frontend'а — стремлюсь, чтобы продукт был
-            удобным, качественным, красивым, доступным и отвечающим всем
-            современным стандартам W3C.
-          </p>
-
-          <div class="links">
-            <a
-              class="links__item links__item--decorated"
-              :href="item.url"
-              v-for="(item, id) in links"
-              :key="id"
-              :rel="item.attr.rel"
-              :download="item.attr.download"
-              :target="item.attr.target"
-              data-aos="fade-left"
-              data-aos-duration="800"
-              data-aos-anchor-placement="top-bottom"
-              :data-aos-delay="800 + id * 200"
-            >
-              {{ item.title }}
-            </a>
-          </div>
-        </div>
-
-        <img
-          class="hero__image"
-          src="/photo.webp"
-          alt="Фото"
-          data-aos="zoom-out"
-          data-aos-duration="800"
-          data-aos-anchor-placement="top-bottom"
-        />
-      </div>
-    </div>
-  </section>
-</template>
- -->
-
 <style lang="scss">
 .hero {
   padding: var(--padding-section);
 
   &__text {
     max-width: 560px;
+  }
+
+  &__hello {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-position: center;
+    object-fit: cover;
   }
 
   &__title {

@@ -1,23 +1,5 @@
-<!-- <script lang="ts">
-import Vue from "vue";
-/* import aosMixin from "../mixins/aos"; */
-
-export default Vue.extend({
-  props: {
-    project: {
-      type: Object,
-      required: true,
-    },
-    animate: {
-      type: Object,
-      required: true,
-    },
-  },
- /*  mixins: [aosMixin], */
-});
-</script> -->
 <script>
-import aosMixin from "~/mixins/aos"
+import aosMixin from '~/mixins/aos'
 export default {
   props: {
     project: {
@@ -32,8 +14,9 @@ export default {
   mixins: [aosMixin],
 }
 </script>
+
 <template>
-  <section class="project">
+  <article class="project">
     <div class="container">
       <div
         class="project__inner"
@@ -58,7 +41,7 @@ export default {
           />
         </a>
         <div>
-          <div
+          <!--           <div
             class="title"
             data-aos="fade-left"
             data-aos-duration="800"
@@ -67,14 +50,14 @@ export default {
             data-aos-once="true"
           >
             {{ project.date }}
-          </div>
+          </div> -->
 
           <h3
             class="title"
             data-aos="fade-left"
             data-aos-duration="800"
             data-aos-anchor-placement="top-bottom"
-            :data-aos-delay="animate.delay + 600"
+            :data-aos-delay="animate.delay + 400"
             data-aos-once="true"
           >
             {{ project.title }}
@@ -85,7 +68,7 @@ export default {
             data-aos="fade-left"
             data-aos-duration="800"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1500"
+            :data-aos-delay="animate.delay + 600"
             data-aos-once="true"
           >
             Цель проекта:
@@ -98,7 +81,7 @@ export default {
               data-aos="fade-left"
               data-aos-duration="800"
               data-aos-anchor-placement="top-bottom"
-              :data-aos-delay="animate.delay + 600 + id * 200"
+              :data-aos-delay="animate.delay + 600 + id * 100"
               data-aos-once="true"
             >
               {{ item }}
@@ -108,11 +91,11 @@ export default {
             data-aos="fade-left"
             data-aos-duration="800"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1000"
+            data-aos-delay="2000"
             data-aos-once="true"
             class="links"
           >
-            <a class="links__item" :href="project.demo">Demo </a>
+            <a class="links__item" :href="project.demo">Демо </a>
             |
             <a
               class="links__item"
@@ -120,13 +103,13 @@ export default {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Repo</a
+              Код</a
             >
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss">
@@ -141,17 +124,27 @@ export default {
   &__image {
     display: block;
     object-position: center;
-    object-fit: cover;
+    object-fit: contain;
     max-width: 560px;
     width: 100%;
     height: 350px;
     margin-bottom: var(--margin-big);
-    border: 2px solid #000;
+    @media screen and (min-width: 767px) {
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
   }
 
-  &__list > li {
-    margin-bottom: var(--margin-small);
-    list-style-type: none;
+  &__list {
+    margin-bottom: var(--margin-lg);
+    padding-left: var(--margin-lg);
+    > li {
+      margin-bottom: var(--margin-small);
+      padding-left: 10px;
+      list-style: '✅';
+    }
   }
 }
 </style>
