@@ -1,4 +1,7 @@
-FROM node:16-alpine
+FROM alpine:3.15
+
+ENV NODE_VERSION 16.15.1
+
 WORKDIR /website
 ADD package.json package.json
 COPY . .
