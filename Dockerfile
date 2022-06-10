@@ -21,7 +21,7 @@ RUN rm -rf node_modules && \
   --non-interactive \
   --production=true
 
-FROM node:16-alpine
+FROM alpine:3.15
 
 WORKDIR /website
 
