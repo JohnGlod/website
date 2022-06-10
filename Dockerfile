@@ -26,6 +26,6 @@ WORKDIR /website
 COPY --from=builder /website  .
 
 ENV HOST 0.0.0.0
-EXPOSE 80
+EXPOSE 3000
 
 CMD [ "yarn", "start" ]
