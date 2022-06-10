@@ -1,11 +1,31 @@
-FROM node:16-alpine
-ENV APP_ROOT /website
-ENV NODE_ENV production
+FROM node:lts as builder
 
-WORKDIR ${APP_ROOT}
-ADD . ${APP_ROOT}
+WORKDIR /website
 
-RUN npm ci
-RUN npm run build
+COPY . .
 
-CMD ["npm", "run", "start"]
+RUN yarn install \
+  --prefer-offline \
+  --frozen-lockfile \
+  --non-interactive \
+  --production=false
+
+RUN yarn build
+
+RUN rm -rf node_modules && \
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
+
+FROM node:lts
+
+WORKDIR /website
+
+COPY --from=builder /website  .
+
+ENV HOST 0.0.0.0
+EXPOSE 80
+
+CMD [ "yarn", "start" ]
