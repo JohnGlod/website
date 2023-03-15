@@ -2,6 +2,7 @@
 import aosMixin from '~/mixins/aos'
 export default {
   name: 'AboutPage',
+  mixins: [aosMixin],
   data: () => ({
     links: [
       {
@@ -25,8 +26,35 @@ export default {
         },
       },
     ],
+    mainSkills: [
+      'HTML, CSS (SCSS, BEM, Materialize, Tailwind CSS, css-modules)',
+      'Адаптивная и семантическая вёрстка',
+      'JavaScript ES6+, TypeScript',
+      'React, Redux, Redux Toolkit',
+      'Изучаю Angular и его экосистему',
+      'Unit-тестирование',
+      'HTTP, ООП, Паттерны',
+    ],
+    anotherSkills: [
+      'Builders: Webpack, Vite',
+      'Backend: NodeJS, NestJS',
+      'Data base: MongoDB',
+    ],
+    softSkills: [
+      'Внимание к деталям, эффективное выполнение задач',
+      'Готовность быстро адаптироваться к новым технологиям и изменяющимся требованиям проекта',
+      'Умение работать в команде',
+      'Аналитическое и критическое мышление',
+      'Готовность к обучению и участию в процессах развития как самого себя, так и других членов команды',
+      'Отсутствие вредных привычек, энергичность, самостоятельность',
+    ],
+    description: [
+      'Я - молодой и амбициозный разработчик, который готов к новым вызовам и не боится экспериментировать.',
+      'Если вы ищете кого-то, кто может привнести в вашу жизнь что-то новое, давайте поговорим и посмотрим, куда это нас приведет!',
+      'Мои знания позволяют мне разрабатывать качественные, функциональные и привлекательные современные приложения, который будет находить отклик у пользователей',
+      'Я готов взять на себя любые задачи, чтобы расширить свой опыт, и работать в команде, чтобы обменяться опытом и научиться новому. Если вы ищете  разработчика, который готов добавить свой вклад и амбиции в ваш бизнес, то я именно тот, кто вам нужен!',
+    ],
   }),
-  mixins: [aosMixin],
 }
 </script>
 
@@ -40,10 +68,22 @@ export default {
           data-aos-duration="800"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="300"
+          data-aos-once="true"
         >
           Немного обо мне
         </h2>
-
+        <p
+          v-for="(item, index) in description"
+          :key="index"
+          class="about__text"
+          data-aos="fade-up-right"
+          data-aos-duration="1000"
+          data-aos-anchor-placement="top-bottom"
+          :data-aos-delay="0 + index * 200"
+          data-aos-once="true"
+        >
+          {{ item }}
+        </p>
         <div class="about__col">
           <div class="about__list">
             <h3
@@ -52,58 +92,22 @@ export default {
               data-aos-duration="800"
               data-aos-anchor-placement="top-bottom"
               data-aos-delay="500"
+              data-aos-once="true"
             >
               Ключевые навыки:
             </h3>
             <ul class="list">
               <li
+                v-for="(item, index) in mainSkills"
+                :key="index"
                 class="list__item"
                 data-aos="fade-up-right"
                 data-aos-duration="1000"
                 data-aos-anchor-placement="top-bottom"
-                data-aos-delay="600"
+                :data-aos-delay="600 + index * 200"
+                data-aos-once="true"
               >
-                HTML, CSS (SCSS, BEM, Materialize, Tailwind CSS, css-modules)
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="800"
-              >
-                JavaScript ES6+, TypeScript
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1000"
-              >
-                React, Redux, Redux Toolkit
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1200"
-              >
-                Адаптивная и семантическая вёрстка
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1400"
-              >
-                Небольшой опыт с Vue, Nuxt
+                {{ item }}
               </li>
             </ul>
           </div>
@@ -114,39 +118,23 @@ export default {
               data-aos-duration="800"
               data-aos-anchor-placement="top-bottom"
               data-aos-delay="1500"
+              data-aos-once="true"
             >
               Прочие знания:
             </h3>
 
             <ul class="list">
               <li
+                v-for="(item, index) in anotherSkills"
+                :key="index"
                 class="list__item"
                 data-aos="fade-up-right"
                 data-aos-duration="1000"
                 data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1700"
+                :data-aos-delay="1800 + index * 200"
+                data-aos-once="true"
               >
-                Сборщики: Gulp, Webpack
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1900"
-              >
-                Опыт работы с графическими редакторами: Figma, Zeplin, Avocode
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="2100"
-              >
-                Прочее: Git, Chrome DevTools, Postman
+                {{ item }}
               </li>
             </ul>
           </div>
@@ -157,86 +145,41 @@ export default {
               data-aos-duration="800"
               data-aos-anchor-placement="top-bottom"
               data-aos-delay="1500"
+              data-aos-once="true"
             >
               Soft-скиллы:
             </h3>
 
             <ul class="list">
               <li
+                v-for="(item, index) in softSkills"
+                :key="index"
                 class="list__item"
                 data-aos="fade-up-right"
                 data-aos-duration="1000"
                 data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1700"
+                :data-aos-delay="1800 + index * 200"
+                data-aos-once="true"
               >
-                Внимание к деталям, эффективное выполнение задач
-              </li>
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1900"
-              >
-                Умение работать в команде
-              </li>
-
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="2100"
-              >
-                Способность учиться и адаптироваться к новым задачам
-              </li>
-              <li
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="2200"
-              >
-                Отсутствие вредных привычек, энергичность, самостоятельность
+                {{ item }}
               </li>
             </ul>
-          </div>
-          <div class="about__list">
-            <p
-              class="about__text"
-              data-aos="fade-up-right"
-              data-aos-duration="1000"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="2200"
-            >
-              Постоянно учусь и совершенствую свои навыки, а главное по
-              настоящему люблю свое дело. Ищу место, где получу возможность
-              расти и развиваться как в профессиональном так и личностном плане.
-            </p>
-            <p
-              class="about__text"
-              data-aos="fade-up-right"
-              data-aos-duration="1000"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="2400"
-            >
-              Интересуюсь и слежу за современными тенденциями в frontend мире,
-              постоянно развиваюсь, читаю профильную литературу и habr / medium,
-              слушаю Веб- стандарты.
-            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-
 <style lang="scss">
 .about {
   padding: var(--padding-section);
 
   &__col {
     columns: 2 var(--content);
+    @media screen and (min-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__list {
@@ -246,7 +189,7 @@ export default {
 
   &__text {
     margin-bottom: var(--margin-lg);
-    max-width: var(--content);
+    padding: 0;
   }
 }
 

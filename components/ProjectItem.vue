@@ -1,6 +1,7 @@
 <script>
 import aosMixin from '~/mixins/aos'
 export default {
+  mixins: [aosMixin],
   props: {
     project: {
       type: Object,
@@ -11,7 +12,6 @@ export default {
       required: true,
     },
   },
-  mixins: [aosMixin],
 }
 </script>
 
@@ -41,17 +41,6 @@ export default {
           />
         </a>
         <div>
-          <!--           <div
-            class="title"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-anchor-placement="top-bottom"
-            :data-aos-delay="animate.delay + 400"
-            data-aos-once="true"
-          >
-            {{ project.date }}
-          </div> -->
-
           <h3
             class="title"
             data-aos="fade-left"
@@ -127,13 +116,17 @@ export default {
     object-fit: contain;
     max-width: 560px;
     width: 100%;
-    height: 350px;
+    height: 90%;
     margin-bottom: var(--margin-big);
+    transition: transform ease-in 0.8s;
     @media screen and (min-width: 767px) {
       object-fit: cover;
       border: 4px solid #fff;
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
         0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
