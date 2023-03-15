@@ -1,10 +1,55 @@
 <script>
+import { uniqueId } from 'lodash'
+
 export default {
   name: 'ProjectPage',
+  components: { 'project-item': () => import('~/components/ProjectItem.vue') },
   data: () => ({
     projects: [
       {
-        id: 1,
+        id: uniqueId(),
+        image: {
+          src: 'https://cdn.discordapp.com/attachments/396268541021782016/1085545325961424896/image.png',
+          alt: 'RS-Club - приложение для поиска оффлайн друзей и коллег на карте планеты, среди людей, учащихся в rs-school.',
+        },
+        title:
+          'RS-Club - приложение для поиска оффлайн друзей и коллег на карте планеты, среди людей, учащихся в rs-school.',
+        demo: 'https://rs-club.vercel.app/',
+        repo: 'https://github.com/evakerrigan/rs-club/pull/20',
+        list: [
+          'Разработать SPA с использованием React + Typescript',
+          'Реализовать командную работу с применением Agile-методологии',
+          'Проводить код-ревью для повышения качества продукта',
+          'Разработать бекенд часть приложения, используя технологии NESTJS и MONGO DB',
+          'Обеспечить интеграцию взаимодействия между бэкенд и фронтенд частями приложения',
+          'Оказывать поддержку и помощь другим участникам проекта для достижения общих целей',
+        ],
+        animate: {
+          name: 'fade-up-right',
+          delay: 0,
+        },
+      },
+      {
+        id: uniqueId(),
+        image: {
+          src: 'https://cdn.discordapp.com/attachments/396268541021782016/1085537197429620736/image.png',
+          alt: 'Online-Store - Интернет магазин',
+        },
+        title: 'Online-Store - Интернет магазин',
+        demo: 'https://s-squad-online-store.netlify.app/',
+        repo: 'https://github.com/s-squad/online-store/tree/develop',
+        list: [
+          'Разработать UI с использованием React + Typescript',
+          'Реализовать командную работу с применением Agile-методологии',
+          'Проводить код-ревью для повышения качества продукта',
+        ],
+        animate: {
+          name: 'fade-up-left',
+          delay: 1000,
+        },
+      },
+      {
+        id: uniqueId(),
         image: {
           src: '/crypto-img.webp',
           alt: 'Crypto - NFT Marketplace',
@@ -27,7 +72,27 @@ export default {
         },
       },
       {
-        id: 2,
+        id: uniqueId(),
+        image: {
+          src: 'https://cdn.discordapp.com/attachments/396268541021782016/1085580492058927284/image.png',
+          alt: 'Songbird - приложение-викторина для распознавания птиц по их голосам.',
+        },
+        title:
+          'Songbird - приложение-викторина для распознавания птиц по их голосам.',
+        demo: 'https://rolling-scopes-school.github.io/johnglod-JSFE2022Q3/songbird/index.html',
+        repo: 'https://github.com/rolling-scopes-school/tasks/blob/master/tasks/songbird/songbird-2022q3.md',
+        list: [
+          'Разработать викторину на чистом JavaScript.',
+          'Разработать UI согласно требованиям проекта',
+          'Деплой проекта на GITHUB PAGES.',
+        ],
+        animate: {
+          name: 'fade-up-right',
+          delay: 0,
+        },
+      },
+      {
+        id: uniqueId(),
         image: {
           src: '/kam-img.webp',
           alt: 'Камчатка - анимированный лендинг',
@@ -52,7 +117,6 @@ export default {
       },
     ],
   }),
-  components: { 'project-item': () => import('~/components/ProjectItem.vue') },
 }
 </script>
 <template>
