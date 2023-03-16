@@ -25,8 +25,14 @@ export default {
           <img class="project__image" :src="project.image.src" :alt="project.title" />
         </a>
         <div>
-          <h3 class="title" data-aos="fade-left" data-aos-duration="800" data-aos-anchor-placement="top-bottom"
-            :data-aos-delay="animate.delay + 400" data-aos-once="true">
+          <h3
+            class="title"
+            data-aos="fade-left"
+            data-aos-duration="800"
+            data-aos-anchor-placement="top-bottom"
+            :data-aos-delay="animate.delay + 400"
+            data-aos-once="true"
+          >
             {{ project.title }}
           </h3>
 
@@ -62,7 +68,6 @@ export default {
 
   &__inner {
     @media screen and (min-width: 1024px) {
-      display: block;
       flex-direction: row;
     }
 
@@ -89,7 +94,7 @@ export default {
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
         0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
-
+    
     &:hover {
       transform: scale(1.05);
     }
