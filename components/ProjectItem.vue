@@ -68,7 +68,7 @@ export default {
 
   &__inner {
     @media screen and (min-width: 1024px) {
-      flex-direction: row;
+      display: block;
     }
 
     display: flex;
@@ -94,7 +94,7 @@ export default {
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
         0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
-    
+
     &:hover {
       transform: scale(1.05);
     }
