@@ -1,33 +1,32 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  target: 'static',
   head: {
-    title: 'Евгений Долгополов',
+    title: 'Evgeny Dolgopolov',
     htmlAttrs: {
-      lang: 'ru',
+      lang: 'en',
     },
     link: [
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=My+Soul&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&Fira+Code:wght@300;400;500;600&display=swap',
       },
     ],
   },
   pwa: {
     meta: {
-      name: 'Евгений Долгополов',
-      author: 'Евгений Долгополов',
+      name: 'Evgeny Dolgopolov',
+      author: 'Evgeny Dolgopolov',
       description:
-        'Евгений Долгополов — frontent-developer из Тюмени, специализирующийся на создании удобных пользовательских интерфейсов, привлекательных и отзывчивых веб-сайтов и мобильных приложений.',
+        'Evgeny Dolgopolov is a frontent developer from Tyumen, specializing in creating user-friendly interfaces, attractive and responsive websites and mobile applications.',
       theme_color: '#ffc40d',
-      lang: 'ru',
-      ogTitle: 'Сайт-визитка | Евгений Долгополов',
+      lang: 'en',
+      ogTitle: 'Portfolio | Evgeny Dolgopolov',
     },
     manifest: {
-      name: 'Мой личный сайт-визитка',
-      lang: 'ru',
+      name: 'Portfolio | Evgeny Dolgopolov',
+      lang: 'en',
       description:
-        'Евгений Долгополов — frontent-developer из Тюмени, специализирующийся на создании удобных пользовательских интерфейсов, привлекательных и отзывчивых веб-сайтов и мобильных приложений.',
+        'Evgeny Dolgopolov is a frontent developer from Tyumen, specializing in creating user-friendly interfaces, attractive and responsive websites and mobile applications.',
       theme_color: '#ffc40d',
       background_color: '#ffc40d',
     },
@@ -37,7 +36,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
