@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: venkappa/nuxt-landing:2.0.1
+    image: venkappa/nuxt-landing:2.0.2
     ports:
       - '3000:3000'
     environment:
