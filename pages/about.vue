@@ -48,11 +48,19 @@ export default {
       'Готовность к обучению и участию в процессах развития как самого себя, так и других членов команды',
       'Отсутствие вредных привычек, энергичность, самостоятельность',
     ],
+    facts: [
+      'I confident that nothing is impossible',
+      'I live in the best city in the world',
+      'Born in Siberia',
+      'I read scientific articles on physics',
+      'Familiar with astronomy, not astrology',
+      'I love the cyberpunk genre',
+      'Like to share knowledge',
+    ],
     description: [
-      'Я - молодой и амбициозный разработчик, который готов к новым вызовам и не боится экспериментировать.',
-      'Если вы ищете кого-то, кто может привнести в вашу жизнь что-то новое, давайте поговорим и посмотрим, куда это нас приведет!',
-      'Мои знания позволяют мне разрабатывать качественные, функциональные и привлекательные современные приложения, который будет находить отклик у пользователей',
-      'Я готов взять на себя любые задачи, чтобы расширить свой опыт, и работать в команде, чтобы обменяться опытом и научиться новому. Если вы ищете  разработчика, который готов добавить свой вклад и амбиции в ваш бизнес, то я именно тот, кто вам нужен!',
+      'With over 2 years of experience, I love reactivity and static types.',
+      "I enjoy developing high quality, visually appealing applications that pique user interest. I'm always ready to take on a challenge, I'm happy to expand my skills and collaborate with others.",
+      'Ready to bring ambition and value to you biz? I am your dev!',
     ],
   }),
 }
@@ -65,14 +73,44 @@ export default {
         <h2
           class="title about__title"
           data-aos="fade-up-right"
-          data-aos-duration="800"
+          data-aos-duration="1000"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="300"
           data-aos-once="true"
         >
-          Немного обо мне
+          about-me
         </h2>
         <p
+          class="subtitle"
+          data-aos="fade-up-right"
+          data-aos-duration="1000"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-delay="500"
+          data-aos-once="true"
+        >
+          Who am i?
+        </p>
+        <div class="about__col">
+          <div class="about__item">
+            <p
+              v-for="(item, index) in description"
+              :key="index"
+              class="about__text"
+              data-aos="fade-up-right"
+              data-aos-duration="1000"
+              data-aos-anchor-placement="top-bottom"
+              :data-aos-delay="0 + index * 200"
+              data-aos-once="true"
+              data-text="dev"
+            >
+              {{ item }}
+            </p>
+          </div>
+          <div class="about__item">
+            <img class="image" src="/evgeniy.png" alt="Photo" />
+          </div>
+        </div>
+        <!--         <p
           v-for="(item, index) in description"
           :key="index"
           class="about__text"
@@ -165,6 +203,35 @@ export default {
               </li>
             </ul>
           </div>
+        </div> -->
+      </div>
+      <div>
+        <h3
+          class="title"
+          data-aos="fade-up-right"
+          data-aos-duration="1000"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-delay="1500"
+          data-aos-once="true"
+        >
+          my-fun-facts
+        </h3>
+        <div class="about__list">
+          <ul class="list">
+            <li
+              v-for="(item, index) in facts"
+              :key="index"
+              class="list__item"
+              data-aos="fade-up-right"
+              data-aos-duration="1000"
+              data-aos-anchor-placement="top-bottom"
+              :data-aos-delay="2000 + index * 200"
+              data-aos-once="true"
+            >
+              {{ item }}
+            </li>
+          </ul>
+          <img src="/figure.png" alt="figure" aria-hidden="true" />
         </div>
       </div>
     </div>
@@ -173,29 +240,116 @@ export default {
 <style lang="scss">
 .about {
   padding: var(--padding-section);
+  position: relative;
 
-  &__col {
-    columns: 2 var(--content);
-    @media screen and (min-width: 767px) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+  @media screen and (min-width: 1023px) {
+    &::before,
+    &::after {
+      content: '';
+      background-image: url('/Dots.svg');
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 86.39px;
+      height: 84px;
     }
+    &::before {
+      bottom: 0%;
+      left: -30px;
+    }
+    &::after {
+      top: 5%;
+      right: -10px;
+    }
+  }
+  &__col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    @media screen and (min-width: 767px) {
+      flex-direction: row;
+    }
+
+    gap: var(--margin-big);
   }
 
   &__list {
     margin-bottom: var(--margin-big);
-    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-lg);
+    img {
+      display: none;
+    }
+    @media screen and (min-width: 1023px) {
+      img {
+        display: block;
+      }
+    }
   }
 
   &__text {
     margin-bottom: var(--margin-lg);
     padding: 0;
+    word-wrap: break-word;
+    &::first-letter {
+      text-transform: uppercase;
+      color: var(--color-primary);
+      font-weight: var(--font-weight-bold);
+      font-size: 1.5rem;
+    }
+  }
+  &__item {
+    flex-basis: 50%;
+    position: relative;
+    @media screen and (min-width: 1023px) {
+      &:last-child {
+        &::before {
+          content: '';
+          background-image: url('/Dots.svg');
+          position: absolute;
+          width: 86.39px;
+          height: 84px;
+          top: -50px;
+          left: -30px;
+          z-index: 1;
+          background-repeat: no-repeat;
+        }
+        &::after {
+          content: '';
+          width: 86.39px;
+          height: 84px;
+          position: absolute;
+          bottom: -50px;
+          right: -30px;
+          background-image: url('/Dots.svg');
+          background-repeat: no-repeat;
+          height: 91px;
+        }
+      }
+    }
   }
 }
+.image {
+  object-fit: cover;
+  height: 100%;
+  object-position: center;
+  width: 100%;
+}
 
-.list__item {
-  padding-left: 10px;
-  margin-bottom: 10px;
-  list-style: '✅';
+.list {
+  padding: 15px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--margin-lg);
+
+  &__item {
+    padding: 10px;
+    border: var(--border);
+  }
+  @media screen and (min-width: 1023px) {
+    flex-basis: 60%;
+  }
 }
 </style>
