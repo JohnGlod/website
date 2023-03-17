@@ -4,14 +4,14 @@
   </button>
 </template>
 
-<script setup>
+<script>
 export default {
   props: {
     text: {
       type: String,
       required: true,
     },
-  },
+  }
 }
 </script>
 

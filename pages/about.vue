@@ -347,6 +347,7 @@ export default {
   &__item {
     padding: 10px;
     border: var(--border);
+
   }
   @media screen and (min-width: 1023px) {
     flex-basis: 60%;

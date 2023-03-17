@@ -1,13 +1,10 @@
 <script>
-import { uniqueId } from 'lodash'
-
 export default {
   name: 'ProjectPage',
   components: { 'project-item': () => import('~/components/ProjectItem.vue') },
   data: () => ({
     projects: [
       {
-        id: uniqueId(),
         image: {
           src: 'https://cdn.discordapp.com/attachments/396268541021782016/1086173340839985172/image.png',
           alt: 'Portfolio website',
@@ -23,7 +20,6 @@ export default {
         },
       },
       {
-        id: uniqueId(),
         image: {
           src: 'https://cdn.discordapp.com/attachments/396268541021782016/1085545325961424896/image.png',
           alt: 'RS-Club — app for finding offline friends and colleagues on the map among rs-school students.',
@@ -47,7 +43,6 @@ export default {
         },
       },
       {
-        id: uniqueId(),
         image: {
           src: 'https://cdn.discordapp.com/attachments/396268541021782016/1086170775763026070/image.png', // 'https://cdn.discordapp.com/attachments/396268541021782016/1085537197429620736/image.png',
           alt: 'Online-Store - e-commerce store',
@@ -67,7 +62,6 @@ export default {
         },
       },
       {
-        id: uniqueId(),
         image: {
           src: '/crypto-img.webp',
           alt: 'Crypto - NFT Marketplace',
@@ -90,7 +84,6 @@ export default {
         },
       },
       {
-        id: uniqueId(),
         image: {
           src: 'https://i.ytimg.com/vi/8xH2GjHKYj0/maxresdefault.jpg', // 'https://cdn.discordapp.com/attachments/396268541021782016/1085580492058927284/image.png',
           alt: 'Songbird — quiz app for recognizing birds by their voices.',
@@ -110,7 +103,6 @@ export default {
         },
       },
       {
-        id: uniqueId(),
         image: {
           src: '/kam-img.webp',
           alt: 'Kamchatka - animated landing page',
@@ -172,8 +164,8 @@ export default {
       </h3>
       <div class="projects__container">
         <project-item
-          v-for="item in projects"
-          :key="item.id"
+          v-for="(item, id) in projects"
+          :key="id"
           :project="item"
           :animate="item.animate"
         />
