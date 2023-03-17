@@ -106,104 +106,17 @@ export default {
               {{ item }}
             </p>
           </div>
-          <div class="about__item">
-            <img class="image" src="/evgeniy.png" alt="Photo" />
-          </div>
+          <picture class="about__item">
+            <source srcset="/evgeniy.webp" type="image/webp" />
+            <source srcset="/evgeniy.png" type="image/png" />
+            <img
+              class="image"
+              src="/evgeniy.png"
+              alt="Photo in cyberpunk style"
+              aria-hidden="true"
+            />
+          </picture>
         </div>
-        <!--         <p
-          v-for="(item, index) in description"
-          :key="index"
-          class="about__text"
-          data-aos="fade-up-right"
-          data-aos-duration="1000"
-          data-aos-anchor-placement="top-bottom"
-          :data-aos-delay="0 + index * 200"
-          data-aos-once="true"
-        >
-          {{ item }}
-        </p>
-        <div class="about__col">
-          <div class="about__list">
-            <h3
-              class="subtitle"
-              data-aos="fade-up-right"
-              data-aos-duration="800"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="500"
-              data-aos-once="true"
-            >
-              Ключевые навыки:
-            </h3>
-            <ul class="list">
-              <li
-                v-for="(item, index) in mainSkills"
-                :key="index"
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                :data-aos-delay="600 + index * 200"
-                data-aos-once="true"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div class="about__list">
-            <h3
-              class="subtitle"
-              data-aos="fade-up-right"
-              data-aos-duration="800"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-once="true"
-            >
-              Прочие знания:
-            </h3>
-
-            <ul class="list">
-              <li
-                v-for="(item, index) in anotherSkills"
-                :key="index"
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                :data-aos-delay="1800 + index * 200"
-                data-aos-once="true"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-          <div class="about__list">
-            <h3
-              class="subtitle"
-              data-aos="fade-up-right"
-              data-aos-duration="800"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-once="true"
-            >
-              Soft-скиллы:
-            </h3>
-
-            <ul class="list">
-              <li
-                v-for="(item, index) in softSkills"
-                :key="index"
-                class="list__item"
-                data-aos="fade-up-right"
-                data-aos-duration="1000"
-                data-aos-anchor-placement="top-bottom"
-                :data-aos-delay="1800 + index * 200"
-                data-aos-once="true"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </div> -->
       </div>
       <div>
         <h3
@@ -347,7 +260,7 @@ export default {
   &__item {
     padding: 10px;
     border: var(--border);
-
+    color: var(--color-sea);
   }
   @media screen and (min-width: 1023px) {
     flex-basis: 60%;

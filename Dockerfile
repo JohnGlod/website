@@ -1,4 +1,4 @@
-FROM node:16.19.1-alpine as builder
+FROM node:lts as builder
 
 WORKDIR /website
 

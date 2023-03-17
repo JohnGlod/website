@@ -33,9 +33,11 @@ export default {
           </p>
         </div>
         <div class="hero__image image-container">
-          <div class="image-container__animate">
-            <img src="/photo.png" alt="Photo" aria-hidden="true" />
-          </div>
+          <picture class="image-container__animate">
+            <source srcset="/photo.webp" type="image/webp"/>
+            <source srcset="/photo.png" type="image/png" />
+            <img src="/photo.png" alt="Photo in cyberpunk style" aria-hidden="true" />
+          </picture>
           <span class="image-container__text"
             >Currently working on
             <NuxtLink to="/projects" class="accent">Portfolio</NuxtLink>
@@ -56,7 +58,7 @@ export default {
       <div class="hero__skills skills">
         <h2 class="title">skills</h2>
         <div class="skills__inner">
-          <img src="/figure.png" alt="figure" aria-hidden="true"/>
+          <img src="/figure.png" alt="figure" aria-hidden="true" />
           <div class="skills__container">
             <div class="lang">
               <div class="skill">
@@ -130,7 +132,6 @@ export default {
   &__text {
     max-width: 560px;
   }
-
 
   &__title {
     font-size: 2.5rem;

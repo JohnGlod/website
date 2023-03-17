@@ -92,7 +92,6 @@ export default {
     background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(43, 43, 43, 0.568);
-
     &.open {
       transform: translateX(0);
       opacity: 1;
@@ -133,7 +132,7 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    align-items: end;
+    align-items: flex-end;
     align-self: flex-end;
     position: static;
     flex-grow: 1;
