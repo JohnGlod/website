@@ -7,29 +7,21 @@ export default {
     menuOpen: false,
     sections: [
       {
-        id: 1,
-        title: 'Проекты',
+        title: 'home',
+        url: '/',
+      },
+      {
+        title: 'projects',
         url: '/projects',
       },
       {
-        id: 2,
-        title: 'Обо мне',
+        title: 'about-me',
         url: '/about',
       },
-    ],
-    links: [
-      {
-        id: 1,
-        alt: 'Мой почтовый адресс!',
-        url: 'mailto:john1dolgopoloff@yandex.ru',
-        src: '/email.png',
-      },
-      {
-        id: 2,
-        alt: 'Я в телеграмме!',
-        url: 'https://t.me/Veeen',
-        src: '/telegram.png',
-      },
+/*       {
+        title: 'contacts',
+        url: '/contacts',
+      }, */
     ],
   }),
 }
@@ -63,16 +55,6 @@ export default {
               <NuxtLink :to="item.url">{{ item.title }}</NuxtLink>
             </li>
           </ul>
-          <div class="header__links links">
-            <a
-              v-for="(item, id) in links"
-              :key="id"
-              class="links__item"
-              :href="item.url"
-            >
-              <img :src="item.src" :alt="item.alt"
-            /></a>
-          </div>
         </nav>
       </div>
     </div>
@@ -82,7 +64,8 @@ export default {
 <style lang="scss" scoped>
 .header {
   padding: var(--padding-small);
-  background-color: #fff;
+  color: var(--color-white);
+  background-color: var(--color-black);
   position: fixed;
   height: 80px;
   inset: 0;
@@ -104,11 +87,12 @@ export default {
     min-width: 320px;
     padding: 50px;
     transform: translateX(-100%);
-    color: #000;
+    color: #fff;
     opacity: 0;
-    background: rgba(255, 255, 255, 0.192);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(43, 43, 43, 0.568);
+
     &.open {
       transform: translateX(0);
       opacity: 1;
@@ -120,14 +104,13 @@ export default {
       height: auto;
       padding: 0;
       position: static;
-      background-color: #fff;
+      background-color: var(--color-black);
       transform: translateX(0);
       display: flex;
       justify-content: space-between;
       visibility: visible;
       transition: none;
       opacity: 1;
-      flex-basis: 60%;
       border: none;
     }
   }
@@ -137,6 +120,7 @@ export default {
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
+
     @media screen and (min-width: 767px) {
       position: static;
       transform: none;
@@ -149,7 +133,8 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    align-items: center;
+    align-items: end;
+    align-self: flex-end;
     position: static;
     flex-grow: 1;
   }
@@ -159,6 +144,10 @@ export default {
     margin-bottom: 20px;
     font-size: 2rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+    font-family: 'Fira Code';
+    line-height: 21px;
+    color: var(--color-primary);
+
     @media screen and (min-width: 767px) {
       font-size: 1rem;
       margin-bottom: 0px;
@@ -171,14 +160,19 @@ export default {
       color: inherit;
       padding: 10px;
       border-bottom: 1px solid transparent;
-
+      position: relative;
+      width: 100%;
+      &::before {
+        content: '#';
+        color: #2ec4b6;
+      }
       &:hover {
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid var(--color-primary);
       }
 
       &.nuxt-link-active {
         font-weight: var(--font-weight-bold);
-        color: var(--color-bg-second);
+        color: #fff;
       }
     }
   }
@@ -202,7 +196,7 @@ export default {
     left: 50%;
     width: 26px;
     height: 2px;
-    background-color: #000;
+    background-color: #fff;
 
     &:nth-child(1) {
       top: 0;
