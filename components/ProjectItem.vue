@@ -39,8 +39,8 @@ export default {
         {{ project.title }}
       </h5>
       <div class="project__btns">
-        <TheButton text="Live" />
-        <TheButton text="Repo" />
+        <TheButton text="Live" :href="project.demo"/>
+        <TheButton text="Repo" :href="project.repo"/>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
-  <button class="btn">
+  <a class="btn" :href="href" target="_blank">
     {{ text }}
-  </button>
+  </a>
 </template>
 
 <script>
@@ -10,6 +10,11 @@ export default {
     text: {
       type: String,
       required: true,
+    },
+    href: {
+      type: [undefined, String],
+      required: false,
+      default: undefined
     },
   }
 }
@@ -28,8 +33,11 @@ export default {
   font-family: var(--font-second);
   font-style: normal;
   font-weight: 500;
+  text-align: center;
   line-height: 21px;
   background: none;
+  display: inline-block;
+  text-decoration: none;
   @media screen and (min-width: 767px) {
     min-width: 100px;
   }
